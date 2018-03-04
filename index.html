@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body width=99%>
+  </div style="width:49%;padding:1px;height:50px;">
+    <h1 style="text-align:center;">I LOVE CS559!</h1>
+    <p style="text-align:center;color:#DDD">at the first week.</p>
+  <div>
+  <div style="width:25%;padding:1px;float:left;height:150px;overflow:scroll;">
+    <h3 style="background-color:#9bf;">1.Image URL:</h3>
+    <input style="width:80%;padding:2px;" type="text" id="URL" onchange="setNotReady()">
+    <button style="width:10%;padding:2px;display:inline;" onclick="checkImage()">-></button>
+    <p style="background-color:#FBB;color:#777;width:60%;" id="MSG">Need an img URL!</p>  
+  </div>
+  <div style="width:25%;height:150px;padding:1px;float:left;overflow:scroll;">
+    <h3 style="background-color:#9bf;">Sample URLs:</h3>
+    <ul>
+      <li>(Will fail.) http://www.thehappiestmanintheworld.com/wp-content/uploads/2014/10/MM-Happy.jpg</li>
+      <li>(Simple img) https://i.imgur.com/Z9809Je.jpg</li>
+      <li>(Van Gogh) https://i.imgur.com/9PTtvrh.png</li>
+    </ul>
+  </div>
+  <div style="width:49%;height:150px;padding:1px;float:left;overflow:scroll;">
+    <h3 style="background-color:#9bf;">2.Area Of Effect:</h3>
+    <div style="width:40%;padding:1px;float:left;overflow:scroll;">
+      x-start:<span id="xsi">0</span>%<input id="xs" type="range" min="0" max="100" onchange="setAOE()"/>
+      <br />
+      y-start:<span id="ysi">0</span>%<input id="ys" type="range" min="0" max="100" onchange="setAOE()"/>
+      <br />
+    </div>
+    <div style="width:15%;padding:1px;float:left;overflow:scroll;">
+      to
+    </div>
+    <div style="width:40%;padding:1px;float:left;overflow:scroll;">
+      x-end:<span id="xei">100</span>%<input id="xe" type="range" min="0" max="100" onchange="setAOE()"/>
+      <br />
+      y-end:<span id="yei">100</span>%<input id="ye" type="range" min="0" max="100" onchange="setAOE()"/>
+      <br />
+    </div>
+  </div>
+  <br />
+  </div>
+  <br />
+  <div id="controllers" width="99%" style="width:99%;float:left;height:300px;overflow:scroll;">
+    <div id="blocksize" style="float:left;width:22%;height:150px;padding:12px;">
+      <h3 style="background-color:#9bf;">3.Select Quality:</h3>
+      <h3 id="HQ" onclick="setQuality(true);">High<span id="HQS"></span></h3>
+      <h3 id="LQ" onclick="setQuality(false);">Low<span id="LQS">  X</span></h3>
+    </div>
+    <div id="blocksize" style="float:left;width:22%;height:200px;padding:12px;">
+      <h3 style="background-color:#9bf;">4.Set Stroke Size:</h3>
+      <h3 id="L" onclick="setBrushSize('L');">L  X</h3>
+      <h3 id="M" onclick="setBrushSize('M');">M</h3>
+      <h3 id="S" onclick="setBrushSize('S');">S</h3>
+    </div>
+    <div id="style" style="float:left;width:22%;height:200px;padding:12px;">
+      <h3 style="background-color:#9bf;">5.Set Style:</h3>
+      <h3 id="O" onclick="setStyle('O');">O(dd)</h3>
+      <h3 id="B" onclick="setStyle('B');">B(locks)</h3>
+      <h3 id="F" onclick="setStyle('F');">F(abric)</h3>
+      <h3 id="H" onclick="setStyle('H');">H(exagons)  X</h3>
+    </div>
+    <div id="style" style="float:left;width:22%;height:200px;padding:12px;">
+      <h3 style="background-color:#9bf;">7.Transform:</h3>
+	<input id="sliderx" type="range" min="0" max="100" onchange="moveNewCanvas()";/>
+	<br/>
+	<input id="slidery" type="range" min="0" max="100" onchange="moveNewCanvas()"/>
+	<br/>
+	<input id="sliderr" type="range" min="0" max="100" onchange="moveNewCanvas()"/>
+	<br/>
+        <button style="width:10%;padding:2px;" onclick="">-></button>
+    </div>
+    <div id="start" style="text-align:center;width:30%;float:left;margin-left:30%">
+      <h2 style="background-color:#9bf;margin:5px;padding:5px;" onclick="drawCells();">6.GET STARTED!</h2>
+    </div>
+  </div>
+  <br />
+  <div id="canvasRoot" style="position:relative;margin-top:400px;">
+  </div>
+</body>
+<head>
+  <meta name="description" content="Canvas Drawing Example">
+  <meta charset="utf-8">
+  <title>Canvas Drawing Example</title>
+  <script src='./basic.js' type='text/javascript'></script>
+</head>
+</html>
