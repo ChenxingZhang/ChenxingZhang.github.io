@@ -5,16 +5,19 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="catFear" crossorigin="anonymous" src="https://i.imgur.com/MWBPnjD.jpg">
+        <img id="catFear" crossorigin="anonymous" src="./resources/CatFear.jpg">
+        <!-- <img id="catFear" crossorigin="anonymous" src="https://i.imgur.com/MWBPnjD.jpg"> -->
+        <video id="fireVideo" src="http://chenxingzhang.com/fire.mp4" autoplay="true"></video>
       </a-assets>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" src="#catFear"></a-box>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-box position="0 0 0" rotation="0 0 0" src="#catFear"></a-box>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="8" height="8" src="#fireVideo"></a-plane>
       
       <a-assets>
-        <img id="backgroundInsideHouse" crossorigin="anonymous" src="https://i.imgur.com/Z9809Je.jpg">
+        <!-- <img id="shadowFiend" crossorigin="anonymous" src="./resources/ShadowFiend.jpg"> -->
+        <img id="shadowFiend" crossorigin="anonymous" src="https://i.imgur.com/Z9809Je.jpg">
       </a-assets>
       
-      <a-sky id="background-img" src="#backgroundInsideHouse"></a-sky>
+      <a-sky id="background-img" src="#shadowFiend"></a-sky>
     </a-scene>
   </body>
 </html>
