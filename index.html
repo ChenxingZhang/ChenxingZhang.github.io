@@ -4,19 +4,19 @@
   </head>
   <body>
     <a-scene>
-      <a-assets>
+      <a-assets timeout="30000">
         <img id="catFear" crossorigin="anonymous" src="https://chenxingzhang.com/resources/CatFear.jpg">
-        <!-- <img id="catFear" crossorigin="anonymous" src="https://i.imgur.com/MWBPnjD.jpg"> -->
-        <video id="fireVideo" src="https://chenxingzhang.com/fire.mp4" autoplay="true"></video>
       </a-assets>
       <a-box position="0 0 0" rotation="0 0 0" src="#catFear"></a-box>
-      <a-plane position="0 0 0" rotation="-90 0 0" width="8" height="8" src="#fireVideo"></a-plane>
       
-      <a-assets>
-        <!-- <img id="shadowFiend" crossorigin="anonymous" src="./resources/ShadowFiend.jpg"> -->
-        <img id="shadowFiend" crossorigin="anonymous" src="https://i.imgur.com/Z9809Je.jpg">
+      <a-assets timeout="30000">
+        <video id="fireVideo" src="https://chenxingzhang.com/fire.mp4" crossorigin="anonymous" autoplay="true" preload="auto"></video>
       </a-assets>
+      <a-video position="0 0 0" rotation="-90 0 0" width="8" height="8" src="#fireVideo"></a-video>
       
+      <a-assets timeout="30000">
+        <img id="shadowFiend" crossorigin="anonymous" src="https://chenxingzhang.com/resources/ShadowFiend.jpg">
+      </a-assets>
       <a-sky id="background-img" src="#shadowFiend"></a-sky>
     </a-scene>
   </body>
