@@ -1,87 +1,20 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta name="author" content="Chenxing Zhang's HW3">
-  <meta charset="utf-8">
-  <title>Shader 101</title>
-  <script id="vertexShader" type="not-js">
-    attribute vec3 vPosition;
-    attribute vec3 vColor;
-    attribute vec3 vNormal;
-    attribute vec2 vTextureUV;
-    varying vec3 pos;
-    varying vec3 fColor;
-    varying vec3 n;
-    varying vec2 uv;
-    varying mat4 fMVN;
-    uniform mat4 uMVN;
-    uniform mat4 uMV;
-    uniform mat4 uMVP;
-
-    void main(void) {
-      gl_Position = uMVP * vec4(vPosition, 1.0);
-      fColor = vec3(vColor.x + vTextureUV.x,vColor.y,vNormal.z - 1.0);
-      fColor = vColor;
-      pos = (uMV * vec4(vPosition, 1.0)).xyz;
-      fMVN = uMVN;
-      uv = vTextureUV;
-      n = normalize((vec4(vNormal,1.0) * uMVN).xyz);
-    }
-  </script>
-
-  <script id="fragmentShader" type="not-js">
-    precision highp float;
-    varying vec3 pos;
-    varying vec3 fColor;
-    varying vec3 n;
-    varying vec2 uv;
-    varying mat4 fMVN;
-    uniform vec3 fLightDirection;
-    uniform vec3 fLightColor;
-    uniform float fSpecExp;
-    uniform float fDiffuseIntensity;
-    uniform float fSpecIntensity; 
-    uniform sampler2D uSampler;
-
-    vec3 getLocal(){
-      highp vec4 color = texture2D(uSampler, uv);
-      return fColor*0.2 + (color *1.2).xyz + vec3(0.2,0,0);
-    }
-
-    vec3 getSpecular(){
-	    vec3 dir = fLightDirection;
-	    vec3 normal = normalize(n);
-	    vec3 e = normalize(-pos);
-	    vec3 halfv = normalize(dir+e);
-	    return vec3(fSpecIntensity*fLightColor*pow(max(dot(normal,halfv),0.0),fSpecExp));
-    }
-
-    vec3 getDiffuse(){
-      float diffuse = max(0.3,dot(normalize(n),fLightDirection));
-      vec3 local = getLocal();
-	    return diffuse*local*fDiffuseIntensity;
-    }
-
-    void main(void) {
-     gl_FragColor = vec4(getDiffuse() + getSpecular(), 1.0);
-    }
-  </script>
-  <canvas id="Canvas" 
-	   width="500" height="500"
-	   style="border:1px solid #000;">
-  </canvas><br/>
-  <input id="slider1" type="range" min="-100" max="100" />
-  <input id="slider2" type="range" min="50" max="500" />
-  <input id="slider3" type="range" min="-100" max="100" />
-  <script src="http://graphics.cs.wisc.edu/JS/twgl-full.min.js"></script>
-  <script src="./Humanoid.js"></script>
-  <script src="./Camera.js"></script>
-  <script src="./Shapes.js"></script>
-  <script src="./Light.js"></script>
-  <script src="./Constants.js"></script>
-  <script src="./main.js"></script>
-</head>
-<body>
-
-</body>
+  <head>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="catFear" crossorigin="anonymous" src="https://i.imgur.com/MWBPnjD.jpg">
+      </a-assets>
+      <a-box position="-1 0.5 -3" rotation="0 45 0" src="#catFear"></a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      
+      <a-assets>
+        <img id="backgroundInsideHouse" crossorigin="anonymous" src="https://i.imgur.com/Z9809Je.jpg">
+      </a-assets>
+      
+      <a-sky id="background-img" src="#backgroundInsideHouse"></a-sky>
+    </a-scene>
+  </body>
 </html>
