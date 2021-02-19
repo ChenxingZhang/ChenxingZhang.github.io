@@ -1,23 +1,10 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <title>WebappReactTS Baseline</title>
   </head>
   <body>
-    <a-scene>
-      <a-assets timeout="10000">
-        <img id="catFear" crossorigin="anonymous" src="https://chenxingzhang.com/resources/CatFear.jpg">
-      </a-assets>
-      <a-box position="0 0 0" rotation="0 0 0" src="#catFear"></a-box>
-      
-      <a-assets timeout="10000">
-        <video id="fireVideo" src="https://chenxingzhang.com/fire.mp4" crossorigin="anonymous" autoplay="true" preload="auto"></video>
-      </a-assets>
-      <a-video position="0 0 0" rotation="-90 0 0" width="8" height="8" src="#fireVideo"></a-video>
-      
-      <a-assets timeout="10000">
-        <img id="shadowFiend" crossorigin="anonymous" src="https://chenxingzhang.com/resources/ShadowFiend.jpg">
-      </a-assets>
-      <a-sky id="background-img" src="#shadowFiend"></a-sky>
-    </a-scene>
+    <div id="root">
+    <script src="./bundle.js"></script>
   </body>
 </html>
